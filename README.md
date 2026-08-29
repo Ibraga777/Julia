@@ -2,44 +2,34 @@
 
 Site-carta de Isaac para Julia.
 
+## Arquivos que PRECISAM ir juntos
+
+O `index.html` e estas mídias têm que ficar **na mesma pasta**:
+
+- `index.html`
+- `abraco.jpg`
+- `passeio.jpg`
+- `carro.jpg`
+- `perto.jpg`
+- `mascara.jpg`
+- `beijo.mp4`
+- `filtro.mp4`
+
+Se só o HTML for enviado, as fotos não aparecem.
+
 ## Publicar no GitHub Pages
 
-### 1. Criar o repositório
-1. Entre em https://github.com/new
-2. Nome sugerido: `para-julia`
-3. Deixe **sem** README, **sem** .gitignore e **sem** licença
-4. Clique em **Create repository**
+1. https://github.com/new — nome `para-julia` — repositório vazio
+2. Em **uploading an existing file**, arraste **todos** os arquivos acima de uma vez (não só o HTML)
+3. Commit
+4. Settings → Pages → Deploy from a branch → `main` → `/ (root)` → Save
+5. Link: `https://SEU-USUARIO.github.io/para-julia/`
 
-> Se o repositório for **público**, qualquer pessoa com o link vê as fotos e os vídeos.  
-> Conta grátis do GitHub só publica GitHub Pages a partir de repositório público.
-
-### 2. Enviar os arquivos
-
-No computador, abra o terminal **dentro desta pasta** e rode (troque `SEU-USUARIO`):
+Ou pelo terminal, dentro desta pasta:
 
 ```bash
-git init
 git add .
-git commit -m "site para Julia"
-git branch -M main
+git commit -m "fotos na raiz"
 git remote add origin https://github.com/SEU-USUARIO/para-julia.git
 git push -u origin main
 ```
-
-Se preferir sem terminal: no GitHub, clique em **uploading an existing file** e arraste `index.html`, a pasta `fotos` e o `README.md`.
-
-### 3. Ligar o GitHub Pages
-1. Abra o repositório
-2. **Settings** → **Pages**
-3. **Source**: Deploy from a branch
-4. **Branch**: `main` / pasta `/ (root)`
-5. Save
-
-Em 1 ou 2 minutos o site fica em:
-
-```
-https://SEU-USUARIO.github.io/para-julia/
-```
-
-### 4. Mandar para ela
-Envie só o link. Peça para abrir no celular, no Chrome ou no Safari.
