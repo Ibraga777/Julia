@@ -1,0 +1,28 @@
+PUBLICAR NO GITHUB PAGES
+========================
+
+1. Acesse https://github.com/new
+2. Nome do repositorio: para-julia
+3. Crie o repositorio VAZIO (sem README)
+
+4. No computador, abra o terminal DENTRO desta pasta e rode
+   (troque SEU-USUARIO pelo seu usuario do GitHub):
+
+   git init
+   git add .
+   git commit -m "site para Julia"
+   git branch -M main
+   git remote add origin https://github.com/SEU-USUARIO/para-julia.git
+   git push -u origin main
+
+5. No GitHub: Settings > Pages
+   Source = Deploy from a branch
+   Branch = main
+   Folder = / (root)
+   Save
+
+6. Link final:
+   https://SEU-USUARIO.github.io/para-julia/
+
+ATENCAO
+Se o repositorio for publico, as fotos e os videos ficam publicos.

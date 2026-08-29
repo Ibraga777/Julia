@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Julia — de Isaac</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #12080a;
+      --gold: #c4a35a;
+      --gold-soft: #e6d3a3;
+      --cream: #f4ead8;
+      --cream-dim: rgba(244, 234, 216, 0.74);
+      --line: rgba(196, 163, 90, 0.28);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: "Outfit", sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img, video { max-width: 100%; display: block; }
+    .wrap { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
+
+    .dust { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .dust span {
+      position: absolute; width: 3px; height: 3px; background: var(--gold);
+      border-radius: 50%; opacity: .18; animation: rise 18s linear infinite;
+    }
+    @keyframes rise {
+      0% { transform: translateY(110vh) scale(.4); opacity: 0; }
+      20% { opacity: .22; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    .hero {
+      position: relative; min-height: 100svh; display: grid; place-items: center; isolation: isolate;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(18,8,10,.28) 0%, rgba(18,8,10,.55) 42%, rgba(18,8,10,.94) 100%),
+        url("fotos/abraco.jpg") center 30% / cover no-repeat;
+      transform: scale(1.05);
+      animation: ken 28s ease-in-out infinite alternate;
+    }
+    @keyframes ken {
+      from { transform: scale(1.05); }
+      to { transform: scale(1.12) translateY(-14px); }
+    }
+    .hero-content { text-align: center; padding: 80px 20px 60px; position: relative; z-index: 1; }
+    .eyebrow {
+      letter-spacing: .42em; text-transform: uppercase; font-size: .72rem;
+      color: var(--gold); margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif; font-weight: 500;
+      font-size: clamp(3.4rem, 12vw, 8rem); line-height: .9; letter-spacing: -.03em;
+    }
+    .hero h1 em {
+      font-family: "Great Vibes", cursive; font-style: normal; color: var(--gold-soft);
+      display: block; font-size: .62em; margin-top: 10px;
+    }
+    .typed {
+      min-height: 1.8em; margin: 28px auto 0; max-width: 22ch;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.15rem, 2.6vw, 1.7rem); font-style: italic; color: var(--cream-dim);
+    }
+    .typed::after {
+      content: ""; display: inline-block; width: 1px; height: .9em;
+      background: var(--gold); margin-left: 4px; vertical-align: -2px;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    .scroll-btn {
+      display: inline-flex; margin-top: 42px; color: var(--cream); text-decoration: none;
+      border: 1px solid var(--line); padding: 12px 22px; letter-spacing: .16em;
+      text-transform: uppercase; font-size: .72rem; transition: .35s ease;
+      background: rgba(18,8,10,.35); backdrop-filter: blur(8px);
+    }
+    .scroll-btn:hover { border-color: var(--gold); color: var(--gold-soft); transform: translateY(-2px); }
+
+    section { position: relative; z-index: 1; }
+    .letter, .love, .promise { padding: 110px 0; }
+    .gallery { padding: 80px 0 110px; }
+    .section-kicker {
+      color: var(--gold); letter-spacing: .34em; text-transform: uppercase;
+      font-size: .68rem; margin-bottom: 14px;
+    }
+    h2 {
+      font-family: "Cormorant Garamond", serif; font-size: clamp(2.4rem, 6vw, 4.4rem);
+      font-weight: 500; line-height: 1; margin-bottom: 28px;
+    }
+    .rule { width: 72px; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); margin: 0 0 34px; }
+
+    .letter-card {
+      background:
+        radial-gradient(1200px 400px at 10% 0%, rgba(138,58,75,.16), transparent 50%),
+        linear-gradient(180deg, #1f0e13 0%, #16090c 100%);
+      border: 1px solid var(--line);
+      padding: clamp(28px, 5vw, 64px);
+      box-shadow: 0 30px 80px rgba(0,0,0,.35);
+    }
+    .letter-card p, .love p, .promise p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.15rem, 2.1vw, 1.42rem);
+      color: var(--cream-dim); margin-bottom: 1.15em; max-width: 68ch;
+    }
+    .sign {
+      font-family: "Great Vibes", cursive !important;
+      font-size: 2.4rem !important; color: var(--gold-soft) !important; margin-top: 12px;
+    }
+
+    .split { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+    .portrait img, .portrait video {
+      width: 100%; height: min(620px, 78vw); object-fit: cover; border: 1px solid var(--line);
+    }
+
+    .gallery-head { text-align: center; margin-bottom: 42px; }
+    .gallery-head .rule { margin: 0 auto 18px; width: 120px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+    .grid figure {
+      position: relative; overflow: hidden; border: 1px solid var(--line);
+      cursor: pointer; background: #000; margin: 0;
+    }
+    .grid img, .grid video {
+      width: 100%; height: 100%; object-fit: cover; min-height: 260px;
+      transition: transform .8s ease;
+    }
+    .grid figure:hover img, .grid figure:hover video { transform: scale(1.05); }
+    .grid figcaption {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 28px 14px 12px;
+      background: linear-gradient(transparent, rgba(12,6,8,.86));
+      font-family: "Cormorant Garamond", serif; font-style: italic;
+      font-size: 1.05rem; color: var(--gold-soft);
+    }
+    .play-tag {
+      position: absolute; top: 14px; right: 14px;
+      border: 1px solid var(--line); color: var(--gold-soft);
+      font-size: .62rem; letter-spacing: .16em; text-transform: uppercase;
+      padding: 5px 8px; background: rgba(12,6,8,.55);
+    }
+    .g1 { grid-column: span 7; }
+    .g2 { grid-column: span 5; }
+    .g3, .g4 { grid-column: span 6; }
+    .g5 { grid-column: span 5; }
+    .g6 { grid-column: span 7; }
+    .g7 { grid-column: span 12; min-height: 360px; }
+    .g7 video, .g7 img { min-height: 360px; max-height: 520px; }
+
+    .promise {
+      text-align: center;
+      background: radial-gradient(600px 280px at 50% 0%, rgba(196,163,90,.12), transparent 60%);
+    }
+    .promise h2 { font-size: clamp(2.6rem, 8vw, 5.6rem); max-width: 14ch; margin: 0 auto 24px; }
+    .promise p { margin-inline: auto; }
+    .date { margin-top: 8px; letter-spacing: .22em; text-transform: uppercase; font-size: .72rem; color: var(--gold); }
+    footer {
+      padding: 40px 0 56px; text-align: center; color: rgba(244,234,216,.45);
+      font-size: .82rem; letter-spacing: .18em; text-transform: uppercase;
+    }
+
+    .lb {
+      position: fixed; inset: 0; background: rgba(8,4,5,.94);
+      display: none; place-items: center; z-index: 40; padding: 24px;
+    }
+    .lb.open { display: grid; }
+    .lb img, .lb video {
+      max-width: min(920px, 92vw); max-height: 86vh; object-fit: contain;
+      border: 1px solid var(--line); background: #000;
+    }
+    .lb button {
+      position: absolute; top: 18px; right: 18px; background: none; border: 0;
+      color: var(--cream); font-size: 2rem; cursor: pointer;
+    }
+
+    .reveal { opacity: 0; transform: translateY(28px); }
+    .reveal.in { animation: up .9s ease forwards; }
+    @keyframes up { to { opacity: 1; transform: none; } }
+
+    @media (max-width: 860px) {
+      .split { grid-template-columns: 1fr; gap: 28px; }
+      .portrait { order: -1; }
+      .g1,.g2,.g3,.g4,.g5,.g6,.g7 { grid-column: span 12; }
+      .letter, .love, .promise { padding: 78px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="dust" id="dust"></div>
+
+  <header class="hero" id="topo">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="eyebrow">uma carta sincera</p>
+      <h1>Para <em>Julia</em></h1>
+      <p class="typed" id="typed"></p>
+      <a class="scroll-btn" href="#desculpas">ler o que eu preciso te dizer</a>
+    </div>
+  </header>
+
+  <section class="letter" id="desculpas">
+    <div class="wrap">
+      <div class="letter-card reveal">
+        <p class="section-kicker">primeiro o que precisa ser dito</p>
+        <h2>Me desculpa</h2>
+        <div class="rule"></div>
+        <p>Julia,</p>
+        <p>Eu preciso começar pelo que dói. Eu errei com você. Não foi um deslize pequeno que se resolve com um “foi mal”. Foram escolhas, silencios, palavras e atitudes minhas que te machucaram. E a pior parte é saber que a pessoa que mais deveria ter cuidado de você fui eu que te feriu.</p>
+        <p>Eu não to aqui pra justificar nada. Nem pra pedir que você finja que não doeu. Doeu. Eu sei. Você merecia presença, respeito, escuta e consistencia. Em momentos que eu deveria ter sido abrigo eu fui tempestade. Me desculpa por isso. Me desculpa pelos erros que eu cometi. Me desculpa pela forma que eu te fiz sentir. Me desculpa por ter deixado duvida onde você merecia certeza.</p>
+        <p>Se eu pudesse voltar eu te ouviria mais cedo. Te escolheria com mais calma. Guardaria melhor o que é raro. Não da pra apagar o que aconteceu. Mas eu assumo. Inteiro. Sem empurrar a culpa pra ninguem.</p>
+        <p>Você não precisava carregar sozinha o peso do que eu bagacei. Se alguma parte de você ainda ta magoada, faz todo sentido. Minha desculpa não pede que a ferida feche hoje. Pede só a chance de cuidar dela com você, no seu tempo.</p>
+        <p class="sign">Isaac</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="love" id="amor">
+    <div class="wrap split">
+      <div class="reveal">
+        <p class="section-kicker">depois o que não mudou</p>
+        <h2>O que você é pra mim</h2>
+        <div class="rule"></div>
+        <p>Você não é uma fase da minha vida. Você é a parte da minha vida que faz sentido. Eu te amo de um jeito que não cabe em orgulho e também não cabe em pressa. Te amo na rotina, no silencio, no recomeço. Te amo quando você ta leve e te amo quando você ta cansada de mim. Principalmente ai. Porque é ai que o amor deixa de ser conforto e vira decisão.</p>
+        <p>Eu te amo muito Julia. Não como frase pronta. Como fato. Como direção. Como a coisa mais verdadeira que eu tenho pra oferecer depois de ter errado. Você me ensinou o tamanho do que eu posso perder. E eu não quero perder você.</p>
+        <p>Se eu pudesse resumir o que eu sinto seria isso: eu ainda te escolho. Hoje. Amanhã. Depois da tempestade. Eu ainda te escolho.</p>
+      </div>
+      <div class="portrait reveal">
+        <img src="fotos/passeio.jpg" alt="Isaac e Julia" />
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="fotos">
+    <div class="wrap">
+      <div class="gallery-head reveal">
+        <p class="section-kicker">memória</p>
+        <h2>Nós</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="grid">
+        <figure class="g1" data-type="img" data-src="fotos/passeio.jpg">
+          <img src="fotos/passeio.jpg" alt="Passeio" />
+          <figcaption>esse dia</figcaption>
+        </figure>
+        <figure class="g2" data-type="video" data-src="fotos/beijo.mp4">
+          <video src="fotos/beijo.mp4" muted playsinline loop autoplay></video>
+          <span class="play-tag">vídeo</span>
+          <figcaption>quando o mundo some</figcaption>
+        </figure>
+        <figure class="g3" data-type="img" data-src="fotos/abraco.jpg">
+          <img src="fotos/abraco.jpg" alt="Abraço" />
+          <figcaption>ficar</figcaption>
+        </figure>
+        <figure class="g4" data-type="img" data-src="fotos/carro.jpg">
+          <img src="fotos/carro.jpg" alt="No carro" />
+          <figcaption>a gente</figcaption>
+        </figure>
+        <figure class="g5" data-type="img" data-src="fotos/perto.jpg">
+          <img src="fotos/perto.jpg" alt="Perto" />
+          <figcaption>perto</figcaption>
+        </figure>
+        <figure class="g6" data-type="img" data-src="fotos/mascara.jpg">
+          <img src="fotos/mascara.jpg" alt="Nós" />
+          <figcaption>nós</figcaption>
+        </figure>
+        <figure class="g7" data-type="video" data-src="fotos/filtro.mp4">
+          <video src="fotos/filtro.mp4" muted playsinline loop autoplay></video>
+          <span class="play-tag">vídeo</span>
+          <figcaption>a gente sendo a gente</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="promise" id="promessa">
+    <div class="wrap reveal">
+      <p class="section-kicker">por ultimo a escolha</p>
+      <h2>Eu não vou desistir de você</h2>
+      <div class="rule" style="margin-inline:auto;"></div>
+      <p>Isso não é cobrança. Não é chantagem. Não é te pedir que doa menos rapido do que o seu coração precisa. É uma escolha.</p>
+      <p>Eu escolho ficar. Escolho aprender. Escolho reconstruir a confiança no seu tempo, não no meu. Escolho ser um homem diferente com a mesma mulher, porque você continua sendo a mulher da minha vida.</p>
+      <p>Mesmo se você estiver magoada, em duvida ou com medo de acreditar de novo, eu to aqui. Sem pressa de receber um sim. Com firmeza de não te abandonar no meio do que eu mesmo bagacei.</p>
+      <p>Eu te amo muito Julia. E eu não vou desistir da gente.</p>
+      <p class="sign">Isaac</p>
+      <p class="date">28 de agosto de 2026</p>
+    </div>
+  </section>
+
+  <footer>pra julia, de isaac</footer>
+
+  <div class="lb" id="lb">
+    <button type="button" aria-label="Fechar">&times;</button>
+    <img id="lb-img" alt="" hidden />
+    <video id="lb-vid" muted playsinline controls hidden></video>
+  </div>
+
+  <script>
+    const phrases = ["Eu errei.", "Eu te amo.", "Eu não vou desistir."];
+    const typed = document.getElementById("typed");
+    let pi = 0, ci = 0, deleting = false;
+    function tick() {
+      const current = phrases[pi];
+      typed.textContent = current.slice(0, ci);
+      if (!deleting && ci < current.length) { ci++; setTimeout(tick, 70); }
+      else if (!deleting && ci === current.length) { deleting = true; setTimeout(tick, 1400); }
+      else if (deleting && ci > 0) { ci--; setTimeout(tick, 36); }
+      else { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(tick, 280); }
+    }
+    setTimeout(tick, 600);
+
+    const dust = document.getElementById("dust");
+    for (let i = 0; i < 22; i++) {
+      const s = document.createElement("span");
+      s.style.left = Math.random() * 100 + "%";
+      s.style.animationDelay = Math.random() * 18 + "s";
+      s.style.animationDuration = 14 + Math.random() * 16 + "s";
+      dust.appendChild(s);
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("in"); });
+    }, { threshold: 0.16 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+    const lb = document.getElementById("lb");
+    const lbImg = document.getElementById("lb-img");
+    const lbVid = document.getElementById("lb-vid");
+    document.querySelectorAll(".grid figure").forEach((fig) => {
+      fig.addEventListener("click", () => {
+        const type = fig.dataset.type;
+        const src = fig.dataset.src;
+        lbImg.hidden = type !== "img";
+        lbVid.hidden = type !== "video";
+        if (type === "img") { lbImg.src = src; lbVid.pause(); }
+        else { lbVid.src = src; lbVid.muted = true; lbVid.play(); }
+        lb.classList.add("open");
+      });
+    });
+    function closeLb() {
+      lb.classList.remove("open");
+      lbVid.pause();
+      lbVid.removeAttribute("src");
+    }
+    lb.addEventListener("click", (e) => { if (e.target === lb || e.target.tagName === "BUTTON") closeLb(); });
+  </script>
+</body>
+</html>
